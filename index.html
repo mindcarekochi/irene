@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Irene Mary Ike | Psychiatrist</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #1a365d; /* Navy Blue */
+            --secondary-color: #0d9488; /* Teal/Medical Green */
+            --accent-color: #f59e0b; /* Warm Gold */
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #0f766e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+        
+        .btn-insta {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            padding: 10px 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), url('https://images.unsplash.com/photo-1527613426400-f5a60a7de5b4?auto=format&fit=crop&q=80') center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+        
+        .interests-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .interest-tag {
+            background: var(--bg-light);
+            color: var(--secondary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(13, 148, 136, 0.2);
+        }
+
+        /* Services Section */
+        #services {
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Why Choose Her */
+        #why-us {
+            background-color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: var(--bg-light);
+            transition: var(--transition);
+        }
+        
+        .feature-item:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .feature-item:hover .feature-icon, .feature-item:hover p, .feature-item:hover h4 {
+            color: var(--white);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Testimonials */
+        #testimonials {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        #testimonials .section-title {
+            color: var(--white);
+        }
+
+        #testimonials .section-title::after {
+            background: var(--accent-color);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stars {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .client-name {
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--bg-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .info-icon {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
+
+        .map-container {
+            margin-top: 1rem;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #25D366; /* WhatsApp Green */
+            color: var(--white);
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #128C7E;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+            color: white;
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .social-icons a.insta-icon:hover {
+            background: #E1306C;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        /* Floating WhatsApp Button */
+        .float-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .float-wa:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; 
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Dr. Irene <span>Mary Ike</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">Meet Dr. Irene</a></li>
+                <li><a href="#services">Specialties</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container hero-content">
+            <h1>Expert Psychiatric Care in a Safe Space</h1>
+            <p>Led by Dr. Irene Mary Ike, MD. Empathetic, evidence-based treatment for mental, emotional, and behavioural wellness across all stages of life.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Book an Appointment</a>
+                <a href="tel:+919567496187" class="btn btn-outline"><i class="fas fa-phone-alt"></i> Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Meet Dr. Irene</h2>
+            <div class="about-grid">
+                <div class="about-image">
+                    <!-- Updated with the requested file name -->
+                    <img src="WhatsApp Image 2026-06-13 at 11.33.26 AM_2.jpg" alt="Dr. Irene Mary Ike" onerror="this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80'">
+                </div>
+                <div class="about-text">
+                    <h3>Dr. Irene Mary Ike, MBBS, MD (Psychiatry)</h3>
+                    <p>Dr. Irene Mary Ike is a highly skilled, empathetic, and licensed psychiatrist with over 4 years of clinical and academic expertise. She currently serves as a Senior Resident in the Department of Psychiatry at Believers Church Medical College Hospital, Thiruvalla. She secured Rank 4 in KUHS during her MD at GMC Thiruvananthapuram.</p>
+                    <p>Beyond the clinic, Dr. Irene is a passionate mental health influencer and active community advocate. She frequently speaks at awareness programs in schools, tribal communities, and government institutes. Her personal mission is to erase mental health stigma while providing deeply personalized, non-judgmental healing.</p>
+                    
+                    <div class="interests-tags">
+                        <span class="interest-tag"><i class="fas fa-heart"></i> Mental Health Advocacy</span>
+                        <span class="interest-tag"><i class="fas fa-palette"></i> Creative Artworks</span>
+                        <span class="interest-tag"><i class="fas fa-book-open"></i> Spiritual Literature</span>
+                        <span class="interest-tag"><i class="fas fa-running"></i> Sports & Athletics</span>
+                        <span class="interest-tag"><i class="fas fa-music"></i> Music & Movies</span>
+                    </div>
+
+                    <a href="https://www.instagram.com/irene_mary_ike_?igsh=MWM2bXNneXJzeXV1YQ==" target="_blank" class="btn btn-insta">
+                        <i class="fab fa-instagram"></i> Connect on Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Areas of Specialty</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-user-md service-icon"></i>
+                    <h4>General Psychiatry</h4>
+                    <p>Comprehensive outpatient and inpatient care for adult, geriatric, and perinatal psychiatric disorders.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-child service-icon"></i>
+                    <h4>Child & Adolescent Care</h4>
+                    <p>Specialized behavioral and psychological interventions tailored for young minds and teenagers.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-brain service-icon"></i>
+                    <h4>Therapy & Counseling</h4>
+                    <p>Evidence-based talking therapies including CBT, DBT, and supportive family counseling.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hands-helping service-icon"></i>
+                    <h4>De-Addiction Services</h4>
+                    <p>Structured medical support, motivational enhancement, and therapies to overcome substance dependence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Her Section -->
+    <section id="why-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose Dr. Irene?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <h4>Deep Clinical Expertise</h4>
+                    <p>4+ years of structured experience across emergency crisis care, forensic psychiatry, and consultation-liaison services.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h4>Empathetic Listening</h4>
+                    <p>She provides a safe, non-judgmental environment. Dr. Irene believes healing starts with truly being heard.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-book-medical"></i></div>
+                    <h4>Evidence-Based Practice</h4>
+                    <p>Her treatments rely on modern psychopharmacology integrated with proven psychotherapy frameworks.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-language"></i></div>
+                    <h4>Multilingual Comfort</h4>
+                    <p>Consult in the language you feel most comfortable. Fluent in Malayalam, English, Tamil, Kannada, and Hindi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Patient Experiences</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Dr. Irene is incredibly empathetic and professional. She took the time to truly listen to my concerns without rushing. The therapy plan she suggested has completely turned my life around. Highly recommended."</p>
+                    <p class="client-name">- Sarah M.</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Finding a psychiatrist who communicates so well in multiple languages made a huge difference for my elderly mother. The care and patience Dr. Irene showed us was exceptional."</p>
+                    <p class="client-name">- Rajesh K.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Book an Appointment</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt info-icon"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Believers Church Medical College Hospital,<br>St. Thomas Nagar, Kuttapuzha,<br>Thiruvalla, Kerala 689103</p>
+                            <a href="https://share.google/xgRzaOJa4kdYn3vxd" target="_blank" style="display:inline-block; margin-top: 10px; color: var(--secondary-color); font-weight: 600; text-decoration: underline;">
+                                <i class="fas fa-external-link-alt"></i> Open specific location in Google Maps
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt info-icon"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 9567496187<br>+91 9591317063</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope info-icon"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>irenestars96@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Embedded Map view of the Hospital -->
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15743.084478149174!2d76.56847424683074!3d9.380252550186103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0622c1f0b00001%3A0x800a7b45f0000000!2sBelievers%20Church%20Medical%20College%20Hospital!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <!-- Interactive Booking Form -->
+                <div class="contact-form">
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required placeholder="Your contact number">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Interested Service</label>
+                            <select id="service" class="form-control" required>
+                                <option value="" disabled selected>Select a service</option>
+                                <option value="General Psychiatry">General Psychiatry</option>
+                                <option value="Child & Adolescent Care">Child & Adolescent Care</option>
+                                <option value="Psychotherapy">Psychotherapy (CBT/DBT)</option>
+                                <option value="De-Addiction">De-Addiction Services</option>
+                                <option value="Other">Other Query</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Brief Message</label>
+                            <textarea id="message" rows="4" class="form-control" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">Dr. Irene Mary Ike</div>
+                    <p style="margin-bottom: 1rem; color: #cbd5e1;">Providing empathetic and evidence-based mental health care.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/irene_mary_ike_?igsh=MWM2bXNneXJzeXV1YQ==" target="_blank" class="insta-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">Meet Dr. Irene</a></li>
+                        <li><a href="#services">Specialties</a></li>
+                        <li><a href="#contact">Book Appointment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Business Hours</h4>
+                    <ul>
+                        <li>Mon - Sat: 9:00 AM - 6:00 PM</li>
+                        <li>Sunday: Closed</li>
+                        <li>Emergency Consultations Available</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Dr. Irene Mary Ike. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919567496187" target="_blank" class="float-wa">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Custom Scripts -->
+    <script>
+        // Set Current Year for Copyright
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // WhatsApp Form Integration
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            // Client's WhatsApp Number
+            const waNumber = "919567496187"; 
+
+            // Format the message
+            const waText = `Hello Dr. Irene,%0A%0AI would like to book an appointment/inquire about your services.%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Service Required:* ${service}%0A*Message:* ${message}%0A%0APlease let me know your availability.`;
+
+            // Create WhatsApp URL
+            const waUrl = `https://wa.me/${waNumber}?text=${waText}`;
+
+            // Open in new tab
+            window.open(waUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
